@@ -43,9 +43,6 @@ canvas {
   background-color: #111;
 }
 
-/*  Button style from: 
-    https://googlesamples.github.io/web-fundamentals/fundamentals/media/mobile-web-video-playback.html */
-
 button {
   outline: none;
   position: absolute;
@@ -115,7 +112,7 @@ button {
 
   #gui_controls {
     width: 100%;
-    height: 20%;
+    height: 18%;
     left: 0;
   }
 

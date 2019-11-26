@@ -179,6 +179,44 @@ function initCameraStream() {
     .then(handleSuccess)
     .catch(handleError);
 
+
+
+    
+let label = "Carregando o modelo...";
+let classifier;
+let modelURL = 'https://teachablemachine.withgoogle.com/models/VqRXy2aS/';
+function preload() {
+  classifier = ml5.imageClassifier(modelURL + 'model.json');
+}
+
+function setup() {
+  
+  Video = createCapture(Video);
+  Video.hide();
+  classifyVideo2();
+}
+
+function classifyVideo2() {
+  classifier.classify(Video, gotResults);
+}
+
+function draw() {
+  background(0);
+  textSize(32);
+  textAlign(CENTER, CENTER);
+  fill(255);
+  text(label, width / 2, height - 16);
+}
+
+function gotResults(error, results) {
+  if (error) {
+    console.error(error);
+    return;
+  }
+  label = results[0].label;
+  classifyVideo();
+}
+
   function handleSuccess(stream) {
     window.stream = stream; // make stream available to browser console
     video.srcObject = stream;
@@ -208,6 +246,11 @@ function initCameraStream() {
     }
   }
 }
+
+
+
+
+
 
 function takeSnapshot() {
   // if you'd like to show the canvas add it to the DOM
