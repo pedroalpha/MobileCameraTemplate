@@ -1,6 +1,6 @@
 
-// The video
-let video;
+// The Video2
+let Video2;
 // For displaying the label
 let label = "Carregando...";
 // The classifier
@@ -14,24 +14,24 @@ function preload() {
 
 function setup() {
   createCanvas(450, 450);
-  // Create the video
-  video = createCapture(VIDEO);
-  video.hide();
+  // Create the Video2
+  Video2 = createCapture(Video2);
+  Video2.hide();
 
   // STEP 2: Start classifying
-  classifyVideo();
+  classifyVideo2();
 }
 
 // STEP 2 classify the videeo!
-function classifyVideo() {
-  classifier.classify(video, gotResults);
+function classifyVideo2() {
+  classifier.classify(Video2, gotResults);
 }
 
 function draw() {
   background(0);
 
-  // Draw the video
-  image(video, 0, 0);
+  // Draw the Video2
+  image(Video2, 0, 0);
 
 
   // STEP 4: Draw the label
@@ -52,5 +52,5 @@ function gotResults(error, results) {
   }
   // Store the label and classify again!
   label = results[0].label;
-  classifyVideo();
+  classifyVideo2();
 }
